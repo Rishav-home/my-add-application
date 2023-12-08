@@ -18,7 +18,7 @@ jobs:
     defaults:
       run:
         shell: bash
-    runs-on: arc-runner-set
+    runs-on: kubernetes-runner-scale-set
     steps:
       - uses: actions/checkout@v2
         name: 'Checkout repository'
