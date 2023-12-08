@@ -10,7 +10,7 @@ jobs:
     defaults:
       run:
         shell: bash
-    runs-on: dind-runner-set
+    runs-on: kubernetes-runner-scale-set
     steps:
       - name: 'Run echo statemnt'
         run: echo 'Hello world!'
