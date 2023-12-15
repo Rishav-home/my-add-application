@@ -10,7 +10,7 @@ jobs:
     defaults:
       run:
         shell: bash
-    runs-on: ubuntu-scale-set
+    runs-on: debian-scale-set
     steps:
       - name: 'Run echo statemnt'
         run: echo 'Hello world!'
