@@ -4,7 +4,6 @@ on:
   workflow_dispatch:
 
 jobs:
-
   print:
     name: "Just a print statement"
     defaults:
@@ -14,45 +13,45 @@ jobs:
     steps:
       - name: 'Run echo statemnt'
         run: echo 'Hello world!'
-#  test:
-#    name: 'Checkout the repo'
-#    defaults:
-#      run:
-#        shell: bash
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: actions/checkout@v2
-#        name: 'Checkout repository'
-#      - name: 'Run Tests'
-#        run: mvn clean install
-#      - uses: actions/upload-artifact@v3
-#        with:
-#          name: my-artifact
-#          path: ${{ github.workspace }} # or path/to/artifact/
-#  sonar:
-#    name: 'SonarQube Scan'
-#    defaults:
-#      run:
-#        shell: bash
-#    runs-on: ubuntu-latest
-#    needs: test
-#    steps:
-#      - uses: actions/download-artifact@v3
-#        name: Download the artifact
-#      - name: Sonar scan
-#        uses: SonarSource/sonarqube-scan-action@7295e71c9583053f5bf40e9d4068a0c974603ec8
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-#          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-#        with:
-#          args:
-#            -Dsonar.projectKey=org.rishav:sample-add-application
-#            -Dsonar.projectBaseDir=./my-artifact
-#            -Dsonar.sources=./src/main/java
-#            -Dsonar.tests=./src/test/java
-#            -Dsonar.java.libraries=./target/classes
-#            -Dsonar.java.test.libraries=./target/test-classes
+  test:
+   name: 'Checkout the repo'
+   defaults:
+     run:
+       shell: bash
+   runs-on: ubuntu-latest
+   steps:
+     - uses: actions/checkout@v2
+       name: 'Checkout repository'
+     - name: 'Run Tests'
+       run: mvn clean install
+     - uses: actions/upload-artifact@v3
+       with:
+         name: my-artifact
+         path: ${{ github.workspace }} # or path/to/artifact/
+  sonar:
+   name: 'SonarQube Scan'
+   defaults:
+     run:
+       shell: bash
+   runs-on: ubuntu-latest
+   needs: test
+   steps:
+     - uses: actions/download-artifact@v3
+       name: Download the artifact
+     - name: Sonar scan
+       uses: SonarSource/sonarqube-scan-action@7295e71c9583053f5bf40e9d4068a0c974603ec8
+       env:
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+       with:
+         args:
+           -Dsonar.projectKey=org.rishav:sample-add-application
+           -Dsonar.projectBaseDir=./my-artifact
+           -Dsonar.sources=./src/main/java
+           -Dsonar.tests=./src/test/java
+           -Dsonar.java.libraries=./target/classes
+           -Dsonar.java.test.libraries=./target/test-classes
 
         
 
