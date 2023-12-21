@@ -9,7 +9,7 @@ jobs:
     defaults:
       run:
         shell: bash
-    runs-on: arc-runner-set
+    runs-on: minikube-runner-scale-set
     steps:
       - name: 'Run echo statemnt'
         run: echo 'Hello world!'
