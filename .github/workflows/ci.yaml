@@ -18,7 +18,7 @@ jobs:
     defaults:
       run:
         shell: bash
-    runs-on: kubernetes-runner-scale-set
+    runs-on: minikube-runner-scale-set
     steps:
       - uses: actions/checkout@v2
         name: 'Checkout repository'
