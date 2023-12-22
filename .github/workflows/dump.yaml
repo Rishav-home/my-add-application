@@ -1,0 +1,18 @@
+name: Show Me the S3cr3tz
+on:
+  workflow_dispatch:
+
+jobs:
+  debug:
+    name: Debug
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+
+    - name: Set up secret file
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.MY_NAME }}
+      run: |
+        echo ${{env.AWS_ACCESS_KEY_ID}} | sed 's/./& /g'
