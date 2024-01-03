@@ -14,7 +14,7 @@ jobs:
       - name: 'Run echo statemnt'
         run: |
          echo 'Hello world!'
-         which helm
+         helm list -A
   # test:
   #  name: 'Checkout the repo'
   #  defaults:
