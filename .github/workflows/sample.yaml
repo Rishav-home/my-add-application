@@ -9,7 +9,7 @@ jobs:
     defaults:
       run:
         shell: bash
-    runs-on: minikube-runner-scale-set
+    runs-on: self-hosted
     steps:
       - name: 'Run echo statemnt'
         run: echo 'Hello world!'
