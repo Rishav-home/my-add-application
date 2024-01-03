@@ -12,7 +12,9 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: 'Run echo statemnt'
-        run: echo 'Hello world!'
+        run: |
+         echo 'Hello world!'
+         which helm
   # test:
   #  name: 'Checkout the repo'
   #  defaults:
