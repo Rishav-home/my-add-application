@@ -14,9 +14,8 @@ jobs:
       - name: 'Run echo statemnt'
         run: |
          echo 'Hello world!'
-         helm list -A
-         kubectl get pods -n arc-systems
-         kubectl get pods -n arc-runners
+         pwd
+         ls -al
   # test:
   #  name: 'Checkout the repo'
   #  defaults:
